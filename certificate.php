@@ -17,15 +17,16 @@
 <?php require_once 'process.php'; ?>
 <?php if (isset($_SESSION['message'])): ?>
     <div class="alert alert-<?=$_SESSION['msg_type']?>">
-        <?php
-            $name = $_SESSION['name'];
-            $event = $_SESSION['event'];
-            $position = $_SESSION['position'];
-            $date = $_SESSION['date'];
-            echo $_SESSION['message'];
-            unset($_SESSION['message']);
-        ?>
+        <?php echo $_SESSION['message'] ?>
     </div>
+        <?php
+            if($_SESSION['msg_type'] == 'success'):
+
+                $name = $_SESSION['name'];
+                $event = $_SESSION['event'];
+                $position = $_SESSION['position'];
+                $date = $_SESSION['date'];
+        ?>
     <div id="certificate">
             <!-- <h1 class="heading1">Certificate</h1> -->
             <!-- <h2 class="heading2">Of Appreciation</h2> -->
@@ -40,7 +41,11 @@
         <script type="text/javascript">
             generatePDF();
         </script>
-    <?php endif;  ?>
+    <?php 
+            endif;
+            endif;
+            unset($_SESSION['message']);
+    ?>
     <div class="container">
         <form action="process.php" method='POST'>
 
@@ -51,10 +56,6 @@
             </div>
 
         </form>
-  
-
-
-        <div id="elementH"></div>
 
     </div>
 

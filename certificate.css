@@ -16,6 +16,7 @@ button{
 }
 .container{
     margin-bottom: 5%;
+    transition: all 3s;
 }
 #certificate{
     display: inline-block;
@@ -92,10 +93,8 @@ hr{
     background-clip: padding-box;
     box-shadow: -10px 10px 0 hsla(0, 0%, 100%, 0.15), 10px -10px 0 hsla(0, 0%, 100%, 0.15);
   }
-
-
-  canvas{
-      width: 50%;
+  .loader{
+      display: none;
   }
 
   .date{
@@ -112,7 +111,7 @@ hr{
 }
 @media only screen and (min-width: 1175px){
     .container{
-        padding-left: 15%;
-        padding-right: 15%;
+        padding-left: 18%;
+        padding-right: 18%;
     }
 }

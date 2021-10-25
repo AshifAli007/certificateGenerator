@@ -34,19 +34,25 @@ if(isset($_POST['validate'])){
     $result = $mysqli->query("SELECT * FROM users where cert_id = '$cert_id'") or die($mysqli->error);
     // $mysqli->query("INSERT INTO users (firstName, lastName, event, position) 
     //                 VALUES('$firstName', '$lastName', '$event', '$position')") or die($mysqli->error);
-
+    
     $result = $result->fetch_assoc();
-    // echo $result['firstname'];
-    $_SESSION['message'] = "Validation Successful";
-    $_SESSION['msg_type'] = 'success';
-    $_SESSION['name'] = $result['firstname']." ".$result['lastname'];
-    $_SESSION['event'] = $result['event'];
-    $_SESSION['position'] = $result['position'];
-    $_SESSION['date'] = $result['date'];
-
-
-    // echo $_SESSION['name'];
-
+    if(empty($result)){
+        $_SESSION['message'] = "Validation Failed! Oops no data found check for typos";
+        $_SESSION['msg_type'] = 'warning';
         header('location: certificate.php');
+    }else{
+                echo $result;
+        $_SESSION['message'] = "Validation Successful";
+        $_SESSION['msg_type'] = 'success';
+        $_SESSION['name'] = $result['firstname']." ".$result['lastname'];
+        $_SESSION['event'] = $result['event'];
+        $_SESSION['position'] = $result['position'];
+        $_SESSION['date'] = $result['date'];
+            header('location: certificate.php');
+    }
+
+
+
+
 
 }

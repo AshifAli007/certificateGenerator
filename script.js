@@ -1,8 +1,14 @@
 var doc = new jsPDF('l', 'mm', 'a4');
-
+var certificateName;
 async function generatePDF(){
     var certificate = document.querySelector("#certificate");
-
+    let loader = `      <div class="text-center" id="loader">
+                            <div class="spinner-border text-info" style="width: 3rem; height: 3rem;" role="status">
+                                <span class="sr-only"></span>
+                            </div>
+                        </div>`;
+    $('body').append(loader);
+    certificateName = $('.name').html();
     html2canvas(certificate, {
         // allowTaint: true,
         // useCORS: true,
@@ -11,6 +17,7 @@ async function generatePDF(){
     }).then((canvas)=>{
       
         doc.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 298, 211);
+        $("#loader").css('display', 'none');
         $('.container').append(canvas);
         $('.container').append('<button class="save btn btn-success" type="button" onclick="savePDF()">Download Certificate</button>');
 
@@ -23,9 +30,12 @@ async function generatePDF(){
     $('#certificate').css({
         'display': 'none'
     });
+
+
 }
 
 async function savePDF(){
-    doc.save('certificate.pdf');
+    var fileName = "certificate"+certificateName+".pdf";
+    doc.save(fileName.replace(/ /g,''));
 
 }
