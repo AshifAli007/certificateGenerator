@@ -1,20 +1,35 @@
 @import url('https://fonts.googleapis.com/css2?family=Italianno&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
+
 *{
     margin: 0;
     padding: 0;
 }
-
+form{
+    margin-top: 5%;
+}
+button{
+    display: block;
+}
+.save{
+    width: 100%;
+}
+.container{
+    margin-bottom: 5%;
+}
 #certificate{
-    display: flex;
-    flex-flow: column wrap;
+    display: inline-block;
+    width: 1122px;
+    height: 793px; 
     margin:3%;
-    padding:3%;
-    border: 1px solid black;
-    align-items: center;
+    background-image: url('certificateBack.png');
+    background-size: cover;
+    text-align: center;
 }
 .heading1{
     font-size: 60px;
     font-family: Arial, Helvetica, sans-serif;
+
 }
 .heading2{
     font: size 20px;
@@ -23,11 +38,20 @@
 }
 .app1{
     margin-bottom:15px;
-    font-family: 'Italianno', curive;
+    font-family: Arial;
+    color: #04747F;
+    font-size: 30px;
+    position: relative;
+    top: 36%;
+    letter-spacing: 3px;
 }
 .name{
+    position:relative;
+    top: 39%;
     font-family: 'Italianno', cursive;
-    font-size: 50px;
+    font-size: 90px;
+    color:#FDCE48;
+    letter-spacing: 5px;
 
 }
 hr{
@@ -37,6 +61,14 @@ hr{
     max-width: 100%;
     background-position: 50%;
     box-sizing: border-box;
+}
+.ending1{
+    position: relative;
+    top: 40%;
+    text-align: center; 
+    color: #04747F;
+    font-family: Arial;
+    letter-spacing:1.5px;
 }
 .accessory {
     height: 6px;
@@ -60,3 +92,27 @@ hr{
     background-clip: padding-box;
     box-shadow: -10px 10px 0 hsla(0, 0%, 100%, 0.15), 10px -10px 0 hsla(0, 0%, 100%, 0.15);
   }
+
+
+  canvas{
+      width: 50%;
+  }
+
+  .date{
+      position: relative;
+      top: 48%;
+      right: 17%;
+  }
+
+@media only screen and (min-width: 970px){
+    .container{
+        padding-left: 10%;
+        padding-right: 10%;
+    }
+}
+@media only screen and (min-width: 1175px){
+    .container{
+        padding-left: 15%;
+        padding-right: 15%;
+    }
+}

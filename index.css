@@ -1,0 +1,22 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.add{
+    width:100%;
+    margin-bottom: 1%;
+}
+.btn{
+    margin-top: 3%;
+    width: 100%;
+}
+@media only screen and (min-width: 500px){
+    .add{
+        width: 90%;
+    }
+}
+@media only screen and (min-width: 800px){
+    .add{
+        width: 50%;
+    }
+}

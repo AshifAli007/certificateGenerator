@@ -1,29 +1,31 @@
-var doc = new jsPDF();
+var doc = new jsPDF('l', 'mm', 'a4');
 
-const generatePDF = ()=>{
-    // doc.text(20, 20, 'Hello world!');
-    // doc.text(20, 30, 'This is client-side Javascript to generate a PDF.');
+async function generatePDF(){
+    var certificate = document.querySelector("#certificate");
 
-    // // Add new page
-    // // doc.addPage();
-    // // doc.text(20, 20, 'Visit CodexWorld.com');
+    html2canvas(certificate, {
+        // allowTaint: true,
+        // useCORS: true,
+        width: 1125,
+        height: 796,
+    }).then((canvas)=>{
+      
+        doc.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 298, 211);
+        $('.container').append(canvas);
+        $('.container').append('<button class="save btn btn-success" type="button" onclick="savePDF()">Download Certificate</button>');
 
-    // // Save the PDF
-    // doc.save('document.pdf');
-    var doc = new jsPDF();
-var elementHTML = $('#certificate').html();
-var specialElementHandlers = {
-    '#elementH': function (element, renderer) {
-        return true;
-    }
-};
-doc.fromHTML(elementHTML, 15, 15, {
-    'width': 170,
-    'elementHandlers': specialElementHandlers
-});
+        $(canvas).css({
+            "width": "100%",
+            "height": "auto"
+        });
 
-// Save the PDF
-doc.save('sample-document.pdf');
+    });
+    $('#certificate').css({
+        'display': 'none'
+    });
 }
 
+async function savePDF(){
+    doc.save('certificate.pdf');
 
+}
