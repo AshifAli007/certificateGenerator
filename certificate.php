@@ -30,14 +30,14 @@
         ?>
     <div id="certificate">
             <!-- <h1 class="heading1">Certificate</h1> -->
-            <!-- <h2 class="heading2">Of Appreciation</h2> -->
-            <h3 class="app1">This Certificate is Proudly Presented to </h3>
+            <h2 class="heading2">Of <?php echo (strtolower($position) == "participation")?"Participation":"Achievement"; ?></h2>
+            <!-- <h3 class="app1">This Certificate is Proudly Presented to </h3> -->
             <h1 class="name"><?php echo $name ?></h1>
             <!-- <hr class="accessory"> -->
-            <h4 class="ending1">For achieving <?php echo $position ?> position in the event '<?php echo $event ?>'</h4>
-            <h4 class="ending1">organized by ACM</h4>
+            <h4 class="ending1">For <?php echo (strtolower($position) == "participation")?"Participating":"Achieveing $position Position"; ?> in the event '<?php echo $event ?>'</h4>
+            <h4 class="ending1">organized by ACM Chapter DDUC.</h4>
             <h5 class='date'><?php echo $date?></h5>
-            <h5 class='certificateNo'><?php echo $certificateNo?></h5>
+            <h5 class='certificateNo'><?php echo "ID :  $certificateNo"?></h5>
 
         </div>
         <script type="text/javascript">

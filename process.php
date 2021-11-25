@@ -24,7 +24,7 @@ if(isset($_POST['save'])){
     $certificateNo = strtoupper(str_ireplace(' ', '', $event).'-'.$firstName[0].$lastName[0].$pos).rand(10, 99);
 
     $mysqli->query("INSERT INTO users (firstName, lastName, event, position, date, certificateNo)
-                    VALUES('$firstName', '$lastName', '$event', '$position', '$dateNow', '$certificateNo')") or die($mysqli->error);
+                    VALUES('$firstName', '$lastName', '$event', '$position', 'October 8, 2021', '$certificateNo')") or die($mysqli->error);
 
     $_SESSION['message'] = "Record ha been saved!";
     $_SESSION['msg_type'] = 'success';

@@ -15,11 +15,12 @@ async function generatePDF(){
         width: 1125,
         height: 796,
     }).then((canvas)=>{
-      
-        doc.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 298, 211);
+        document.body.appendChild(canvas)
+
+        // doc.addImage(canvas.toDataURL('image/png'), 'PNG', 0, 0, 298, 211);
         $("#loader").css('display', 'none');
-        $('.container').append(canvas);
-        $('.container').append('<button class="save btn btn-success" type="button" onclick="savePDF()">Download Certificate</button>');
+        // $('.container').append(canvas);
+        // $('.container').append('<button class="save btn btn-success" type="button" onclick="savePDF()">Download Certificate</button>');
 
         // $(canvas).css({
         //     "width": "100%",
@@ -27,9 +28,9 @@ async function generatePDF(){
         // });
 
     });
-    $('#certificate').css({
-        'display': 'none'
-    });
+    // $('#certificate').css({
+    //     'display': 'none'
+    // });
 
 
 }

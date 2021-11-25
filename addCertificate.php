@@ -10,6 +10,27 @@
     <link rel="stylesheet" href="addCertificate.css";
 </head>
         <body>
+        <div class="row justify-content-center">
+            <form class="add" action="process.php" method="POST">
+                <div class="form-floating mb-3">
+                    <input name="firstName" autocomplete="no" type="text" class="form-control" id="floatingInput" placeholder="Enter First Name">
+                    <label for="floatingInput">First Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input name="lastName" autocomplete="no" type="text" class="form-control" id="floatingInput" placeholder="Enter Last Name">
+                    <label for="floatingInput">Last Name</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input name="event" type="text" autocomplete="no" class="form-control" id="floatingInput" placeholder="Event Name">
+                    <label for="floatingInput">Event</label>
+                </div>
+                <div class="form-floating mb-3">
+                    <input name="position" type="text" autocomplete="no" class="form-control" id="floatingInput" placeholder="Position">
+                    <label for="floatingInput">Position</label>
+                </div>
+                    <button class="btn btn-primary" type="submit" name="save">Save</button>
+            </form>
+        </div>
     <?php require_once 'process.php'; ?>
     <?php if (isset($_SESSION['message'])): ?>
     <div class="alert alert-<?=$_SESSION['msg_type']?>">
@@ -57,28 +78,7 @@
 
     ?>
 
-    <div class="row justify-content-center">
 
-    <form class="add" action="process.php" method="POST">
-        <div class="form-floating mb-3">
-            <input name="firstName" autocomplete="no" type="text" class="form-control" id="floatingInput" placeholder="Enter First Name">
-            <label for="floatingInput">First Name</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input name="lastName" autocomplete="no" type="text" class="form-control" id="floatingInput" placeholder="Enter Last Name">
-            <label for="floatingInput">Last Name</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input name="event" type="text" autocomplete="no" class="form-control" id="floatingInput" placeholder="Event Name">
-            <label for="floatingInput">Event</label>
-        </div>
-        <div class="form-floating mb-3">
-            <input name="position" type="text" autocomplete="no" class="form-control" id="floatingInput" placeholder="Position">
-            <label for="floatingInput">Position</label>
-        </div>
-            <button class="btn btn-primary" type="submit" name="save">Save</button>
-    </form>
-    </div>
     </div> 
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
