@@ -26,6 +26,7 @@
                 $event = $_SESSION['event'];
                 $position = $_SESSION['position'];
                 $date = $_SESSION['date'];
+                $certificateNo = $_SESSION['certificateNo'];
         ?>
     <div id="certificate">
             <!-- <h1 class="heading1">Certificate</h1> -->
@@ -36,6 +37,7 @@
             <h4 class="ending1">For achieving <?php echo $position ?> position in the event '<?php echo $event ?>'</h4>
             <h4 class="ending1">organized by ACM</h4>
             <h5 class='date'><?php echo $date?></h5>
+            <h5 class='certificateNo'><?php echo $certificateNo?></h5>
 
         </div>
         <script type="text/javascript">
@@ -51,7 +53,7 @@
 
             <div class="input-group mb-3">
             <!-- <label for="button-addon2" class="form-control">Get Certificate Details</label> -->
-                <input name="cert_id" type="text" autocomplete="on" class="form-control" placeholder="Certificate ID" aria-label="Certificate ID" aria-describedby="button-addon2">
+                <input name="certificateNo" type="text" autocomplete="on" class="form-control" placeholder="Certificate ID" aria-label="Certificate ID" aria-describedby="button-addon2">
                 <button class="btn btn-outline-info" name="validate" type="submit" id="button-addon2">Validate</button>
             </div>
 

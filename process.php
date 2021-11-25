@@ -1,8 +1,8 @@
 <?php
 
 session_start();
+// $mysqli = new mysqli("localhost", "dduchost_dduchost", "dducsanjuonline1", "dduchost_certificates") or die(mysqli_error($mysqli));
 $mysqli = new mysqli("localhost", "root", "", "acm") or die(mysqli_error($mysqli));
-
 if(isset($_POST['save'])){
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
@@ -12,13 +12,24 @@ if(isset($_POST['save'])){
     $mydate=getdate(date("U"));
     $dateNow =  "$mydate[month] $mydate[mday], $mydate[year]";
 
-    $mysqli->query("INSERT INTO users (firstName, lastName, event, position, date) 
-                    VALUES('$firstName', '$lastName', '$event', '$position', '$dateNow')") or die($mysqli->error);
+    $pos = 'p'.rand(1,9);
+    if(strtolower($position) == "first"){
+    	$pos = 'a1';
+    }else if(strtolower($position) == "second"){
+        $pos = 'a2';
+    }else if(strtolower($position) == "third"){
+   		$pos = 'a3';
+    }
+   	
+    $certificateNo = strtoupper(str_ireplace(' ', '', $event).'-'.$firstName[0].$lastName[0].$pos).rand(10, 99);
+
+    $mysqli->query("INSERT INTO users (firstName, lastName, event, position, date, certificateNo)
+                    VALUES('$firstName', '$lastName', '$event', '$position', '$dateNow', '$certificateNo')") or die($mysqli->error);
 
     $_SESSION['message'] = "Record ha been saved!";
     $_SESSION['msg_type'] = 'success';
 
-    header('location: index.php');
+    header('location: addCertificate.php');
 
 }
 function debug_to_console($data) {
@@ -29,9 +40,9 @@ function debug_to_console($data) {
     echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
 }
 if(isset($_POST['validate'])){
-    $cert_id = $_POST['cert_id'];
+    $certificateNo = $_POST['certificateNo'];
 
-    $result = $mysqli->query("SELECT * FROM users where cert_id = '$cert_id'") or die($mysqli->error);
+    $result = $mysqli->query("SELECT * FROM users where certificateNo = '$certificateNo'") or die($mysqli->error);
     // $mysqli->query("INSERT INTO users (firstName, lastName, event, position) 
     //                 VALUES('$firstName', '$lastName', '$event', '$position')") or die($mysqli->error);
     
@@ -44,10 +55,11 @@ if(isset($_POST['validate'])){
                 echo $result;
         $_SESSION['message'] = "Validation Successful";
         $_SESSION['msg_type'] = 'success';
-        $_SESSION['name'] = $result['firstname']." ".$result['lastname'];
-        $_SESSION['event'] = $result['event'];
-        $_SESSION['position'] = $result['position'];
+        $_SESSION['name'] = ucfirst($result['firstname'])." ".ucfirst($result['lastname']);
+        $_SESSION['event'] = ucfirst($result['event']);
+        $_SESSION['position'] = ucfirst($result['position']);
         $_SESSION['date'] = $result['date'];
+        $_SESSION['certificateNo'] = $result['certificateNo'];
             header('location: certificate.php');
     }
 

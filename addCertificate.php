@@ -7,7 +7,7 @@
     <title>Php crud</title>
     <!-- JavaScript Bundle with Popper -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <link rel="stylesheet" href="index.css";
+    <link rel="stylesheet" href="addCertificate.css";
 </head>
         <body>
     <?php require_once 'process.php'; ?>
@@ -20,8 +20,9 @@
     </div>
     <?php endif; ?>
     <?php
-        $mysqli = new mysqli("localhost", "root", "", "acm") or die(mysqli_error($mysqli));
-        $result = $mysqli->query("SELECT * FROM users") or die($mysqli->error);
+    // $mysqli = new mysqli("localhost", "dduchost_dduchost", "dducsanjuonline1", "dduchost_certificates") or die(mysqli_error($mysqli));
+    $mysqli = new mysqli("localhost", "root", "", "acm") or die(mysqli_error($mysqli));
+    $result = $mysqli->query("SELECT * FROM users") or die($mysqli->error);
         // pre_r($result);
         // pre_r($result->fetch_assoc());
     ?>
@@ -41,7 +42,7 @@
                     <td><?php echo $row['firstname'], " ", $row['lastname']; ?></td>
                     <td><?php echo $row['event']; ?></td>
                     <td><?php echo $row['position']; ?></td>
-                    <td><?php echo $row['cert_id']; ?></td>
+                    <td><?php echo $row['certificateNo']; ?></td>
                     <td><?php echo $row['date']; ?></td>
                 </tr>
                 <?php endwhile; ?>

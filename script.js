@@ -21,10 +21,10 @@ async function generatePDF(){
         $('.container').append(canvas);
         $('.container').append('<button class="save btn btn-success" type="button" onclick="savePDF()">Download Certificate</button>');
 
-        $(canvas).css({
-            "width": "100%",
-            "height": "auto"
-        });
+        // $(canvas).css({
+        //     "width": "100%",
+        //     "height": "auto"
+        // });
 
     });
     $('#certificate').css({
