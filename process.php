@@ -1,7 +1,7 @@
 <?php
 session_start();
-// $mysqli = new mysqli("localhost", "dduchost_dduchost", "dducsanjuonline1", "dduchost_certificates") or die(mysqli_error($mysqli));
-$mysqli = new mysqli("localhost", "root", "", "acm") or die(mysqli_error($mysqli));
+$mysqli = new mysqli("localhost", "dduchost_dduchost", "dducsanjuonline1", "dduchost_certificates") or die(mysqli_error($mysqli));
+// $mysqli = new mysqli("localhost", "root", "", "acm") or die(mysqli_error($mysqli));
 if(isset($_POST['save'])){
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
@@ -15,11 +15,11 @@ if(isset($_POST['save'])){
     $dateNow =  "$mydate[month] $mydate[mday], $mydate[year]";
 
     $pos = 'p'.rand(1,9);
-    if(strtolower($position) == "first"){
+    if(($position) == "1st"){
     	$pos = 'a1';
-    }else if(strtolower($position) == "second"){
+    }else if(($position) == "2nd"){
         $pos = 'a2';
-    }else if(strtolower($position) == "third"){
+    }else if(($position) == "3rd"){
    		$pos = 'a3';
     }
    	

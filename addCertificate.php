@@ -91,8 +91,8 @@
     </div>
     <?php endif; ?>
     <?php
-    // $mysqli = new mysqli("localhost", "dduchost_dduchost", "dducsanjuonline1", "dduchost_certificates") or die(mysqli_error($mysqli));
-    $mysqli = new mysqli("localhost", "root", "", "acm") or die(mysqli_error($mysqli));
+    $mysqli = new mysqli("localhost", "dduchost_dduchost", "dducsanjuonline1", "dduchost_certificates") or die(mysqli_error($mysqli));
+    // $mysqli = new mysqli("localhost", "root", "", "acm") or die(mysqli_error($mysqli));
     $result = $mysqli->query("SELECT * FROM users") or die($mysqli->error);
         // pre_r($result);
         // pre_r($result->fetch_assoc());
