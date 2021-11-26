@@ -7,10 +7,10 @@
     <title>Certificate Generator</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.min.js"></script>
-<script src='./html2canvas.min.js'></script>
+<script src='./scripts/html2canvas.min.js'></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<script src="./script.js"></script>
-<link rel="stylesheet" href="./certificate.css"/>
+<script src="./scripts/index.js"></script>
+<link rel="stylesheet" href="./css/index.css"/>
 
 </head>
 <body>
@@ -27,15 +27,14 @@
                 $position = $_SESSION['position'];
                 $date = $_SESSION['date'];
                 $certificateNo = $_SESSION['certificateNo'];
+                $course = $_SESSION['course'];
+                $year = $_SESSION['year'];
         ?>
     <div id="certificate">
-            <!-- <h1 class="heading1">Certificate</h1> -->
             <h2 class="heading2">Of <?php echo (strtolower($position) == "participation")?"Participation":"Achievement"; ?></h2>
-            <!-- <h3 class="app1">This Certificate is Proudly Presented to </h3> -->
             <h1 class="name"><?php echo $name ?></h1>
-            <!-- <hr class="accessory"> -->
-            <h4 class="ending1">For <?php echo (strtolower($position) == "participation")?"Participating":"Achieveing $position Position"; ?> in the event '<?php echo $event ?>'</h4>
-            <h4 class="ending1">organized by ACM Chapter DDUC.</h4>
+            <h4 class="ending1">Of Course <?php echo "$course $year year"?> For <?php echo (strtolower($position) == "participation")?"Participating":"Achieveing $position Position"; ?></h4>
+            <h4 class="ending1"> in the event '<span class='eventName'><?php echo $event ?></span>'</h4>
             <h5 class='date'><?php echo $date?></h5>
             <h5 class='certificateNo'><?php echo "ID :  $certificateNo"?></h5>
 

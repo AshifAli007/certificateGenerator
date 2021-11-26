@@ -23,7 +23,7 @@ button{
     width: 1122px;
     height: 793px; 
     margin:3%;
-    background-image: url('certificateBack1.png');
+    background-image: url('./choices_certificate.png');
     background-size: cover;
     text-align: center;
 }
@@ -34,11 +34,11 @@ button{
 }
 .heading2{
     font-size: 26px;
-    position: absolute;
-    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    /* font-family: Arial, Helvetica, sans-serif; */
     margin-bottom: 40px;
-    top: 299px;
-    left: 40%;
+    top: 293px;
+    left: -1%;
     color: #047480;
     letter-spacing: 3px;
     text-transform: uppercase;
@@ -55,7 +55,7 @@ button{
 }
 .name{
     position:relative;
-    top: 45%;
+    top: 39%;
     font-family: 'Italianno', cursive;
     font-size: 90px;
     color:#FDCE48;
@@ -64,7 +64,7 @@ button{
 }
 .certificateNo{
     position: relative;
-    top: 58%;
+    top: 49%;
     margin-left: -44%;
     color: #FDCF48;
     display: inline-block;
@@ -79,7 +79,7 @@ hr{
 }
 .ending1{
     position: relative;
-    top: 44%;
+    top: 40%;
     text-align: center; 
     color: #04747F;
     font-family: Arial;
@@ -112,10 +112,11 @@ hr{
   }
 
   .date{
-      font-size: 22px;
-      position: relative;
-      top: 49%;
-      right: 22%;
+    font-size: 22px;
+    position: relative;
+    top: 44%;
+    right: 240px;
+}
   }
 
 @media only screen and (min-width: 970px){
