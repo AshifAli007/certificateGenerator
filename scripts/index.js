@@ -3,7 +3,8 @@ var certificateName;
 var eventName;
 var certificateDesigns = {
     choices: "./images/choices_certificate.png",
-    mindtribe: "./images/mind_tribe_certificate.png"
+    mindtribe: "./images/mind_tribe_certificate.png",
+    admin: "./images/admin_certificate.png"
 };
 async function generatePDF(){
     eventName = $('.eventName').html();

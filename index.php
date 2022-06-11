@@ -31,12 +31,23 @@
                 $year = $_SESSION['year'];
         ?>
     <div id="certificate">
-            <h2 class="heading2">Of <?php echo (strtolower($position) == "participation")?"Participation":"Achievement"; ?></h2>
-            <h1 class="name"><?php echo $name ?></h1>
-            <h4 class="ending1">Of Course <?php echo "$course $year year"?> For <?php echo (strtolower($position) == "participation")?"Participating":"Achieveing $position Position"; ?></h4>
-            <h4 class="ending1"> in the event '<span class='eventName'><?php echo $event ?></span>'</h4>
-            <h5 class='date'><?php echo $date?></h5>
-            <h5 class='certificateNo'><?php echo "ID :  $certificateNo"?></h5>
+
+    <?php if($event == 'Admin'): ?>
+        <span class='eventName' style="position:absolute;opacity: 0"><?php echo $event ?></span>
+                <h2 class="heading2">Of Appreciation</h2>
+                <h1 class="name"><?php echo $name ?></h1> 
+                <h4 class="ending1">For successfully serving as the <b><?php echo "$position"?></b> of ACM-CHAPTER </h4>
+                <h4 class="ending1">of Deen Dayal Upadhyaya College for the academic year 2021-2022 </h4>
+                <h5 class='date' style="opacity: 0"><?php echo $date?></h5>
+                <h5 class='certificateNo'><?php echo "ID :  $certificateNo"?></h5>
+    <?php else: ?>
+        <h2 class="heading2">Of <?php echo (strtolower($position) == "participation")?"Appreciation":"Achievement"; ?></h2>
+                <h1 class="name"><?php echo $name ?></h1>
+                <h4 class="ending1">of <?php echo "$course $year year"?> of Deen Dayal Upadhyaya College</h4>
+                <h4 class="ending1"> for <?php echo (strtolower($position) == "participation")?"being in top 20":"achieveing $position position"; ?> in the technical event '<span class='eventName'><?php echo $event ?></span>'</h4>
+                <h5 class='date'><?php echo $date?></h5>
+                <h5 class='certificateNo'><?php echo "ID :  $certificateNo"?></h5>
+    <?php endif; ?>
 
         </div>
         <script type="text/javascript">

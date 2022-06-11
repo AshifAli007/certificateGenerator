@@ -29,7 +29,8 @@
                         <option value="NIL">Select Event</option>
                         <option value="Choices">Choices</option>
                         <option value="Mind Tribe">Mind Tribe</option>
-                        <option value="to be added">to be added</option>
+                        <option value="Into the Future Quiz">Into the Future-Quiz</option>
+                        <option value="Admin">Admin</option>
                         <option value="to be added">to be added</option>
                     </select>
                     <label for="event">Event</label>
@@ -42,6 +43,11 @@
                         <option value="2nd">2nd</option>
                         <option value="3rd">3rd</option>
                         <option value="Participation">Participation</option>
+                        <option value="Web Administrator">Web Administrator</option>
+                        <option value="Chairperson">Chairperson</option>
+                        <option value="Treasurer">Treasurer</option>
+                        <option value="Vice Chairperson">Vice Chairperson</option>
+                        <option value="Secretary">Secretary</option>
                     </select>
                     <label for="position">Position</label>
 
@@ -49,10 +55,13 @@
                 <div class="form-floating mb-3">
                         <select id="course" class="form-control" name="course">
                             <option value="NIL">Select Course</option>
-                            <option value="Bsc(H) Computer Science">Bsc(H) Computer Science</option>
-                            <option value="Bsc(H) Physics">Bsc(H) Physics</option>
-                            <option value="Bsc(H) Physical Science">Bsc(H) Physical Science</option>
-                            <option value="Bsc(H) Mathematics">Bsc(H) Mathematics</option>
+                            <option value="Bsc(H) Computer Science">B.Sc. (H) Computer Science</option>
+                            <option value="Bsc(H) Physics">B.Sc. (H) Physics</option>
+                            <option value="Bsc(H) Physical Science">B.Sc. (H) Physical Science</option>
+                            <option value="Bsc(H) Mathematics">B.Sc. (H) Mathematics</option>
+                            <option value="BSc(H) Electronics">B.Sc. (H) Electronics</option>
+                            <option value="BA English Hons">BA English Hons</option>
+                            <option value="B.Com.(H)">B.Com. (H)</option>
                         </select>
                         <label for="course">Course</label>
                 </div>
@@ -63,6 +72,8 @@
                         <option value="2nd">2nd</option>
                         <option value="3rd">3rd</option>
                         <option value="4th">4th</option>
+
+
                     </select>
                     <label for="year">Year</label>
 
@@ -71,7 +82,9 @@
                     <select id="date" class="form-control" name="date">
                         <option value="NIL">Select Event Date</option>
                         <option value="November 8th, 2021">November 8th, 2021</option>
-                        <option value="to be added">to be added</option>
+                        <option value="September 11th, 2021">September 11th, 2021</option>
+                        <option value="January 16th, 2022">January 16th, 2022</option>
+                        <option value="January 16th, 2022">NIL</option>
                         <option value="to be added">to be added</option>
                         <option value="to be added">to be added</option>
                     </select>
@@ -91,8 +104,8 @@
     </div>
     <?php endif; ?>
     <?php
-    $mysqli = new mysqli("localhost", "dduchost_dduchost", "dducsanjuonline1", "dduchost_certificates") or die(mysqli_error($mysqli));
-    // $mysqli = new mysqli("localhost", "root", "", "acm") or die(mysqli_error($mysqli));
+    // $mysqli = new mysqli("localhost", "dduchost_dduchost", "dducsanjuonline1", "dduchost_certificates") or die(mysqli_error($mysqli));
+    $mysqli = new mysqli("localhost", "root", "", "acm") or die(mysqli_error($mysqli));
     $result = $mysqli->query("SELECT * FROM users") or die($mysqli->error);
         // pre_r($result);
         // pre_r($result->fetch_assoc());
@@ -103,6 +116,8 @@
             <option value="NILl2">Events</option>
             <option value="choices">Choices</option>
             <option value="mindtribe">Mind Tribe</option>
+            <option value="intothefuturequiz">Into the Future-Quiz</option>
+            <option value="admin">Admin</option>
         </select>
         <table class='table'>
             <thead>

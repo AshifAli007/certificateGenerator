@@ -1,7 +1,7 @@
 <?php
 session_start();
-$mysqli = new mysqli("localhost", "dduchost_dduchost", "dducsanjuonline1", "dduchost_certificates") or die(mysqli_error($mysqli));
-// $mysqli = new mysqli("localhost", "root", "", "acm") or die(mysqli_error($mysqli));
+// $mysqli = new mysqli("localhost", "dduchost_dduchost", "dducsanjuonline1", "dduchost_certificates") or die(mysqli_error($mysqli));
+$mysqli = new mysqli("localhost", "root", "", "acm") or die(mysqli_error($mysqli));
 if(isset($_POST['save'])){
     $firstName = $_POST['firstName'];
     $lastName = $_POST['lastName'];
